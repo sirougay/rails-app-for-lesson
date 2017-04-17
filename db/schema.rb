@@ -11,20 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708053255) do
+ActiveRecord::Schema.define(version: 20170417134505) do
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "tweet_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "favorites", ["tweet_id"], name: "index_favorites_on_tweet_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
   create_table "tweets", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "content"
+    t.string   "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

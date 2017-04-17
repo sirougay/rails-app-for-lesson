@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '19f73b8501a2f384c037e29d3e9080979d7a42d0be049fd150822215c0c2ae9738c3c6e8e7ba11d6e5450bd19e85440f7bc7a89a7ea693f110f6be15ab84c4af'
+  # config.secret_key = '6a4d4730a2fceb190f2855d38487b9831816735c77eeafbbe1ce8eaef2d6c3a571b8d171ca96c52be094907020e003385423b4a0b566260a6a49a3537b80d528'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -90,6 +90,12 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
+  # When false, Devise will not attempt to reload routes on eager load.
+  # This can reduce the time taken to boot the app but if your application
+  # requires the Devise mappings to be loaded during boot time the application
+  # won't boot properly.
+  # config.reload_routes = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
@@ -102,9 +108,12 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'd0ece56510f1e55d2d09eeb5fd7e8f0720442f553f95a9c78ede23b386bfca74024bce46c44724e864c8899bb4c219443b1962e3adef83dd6ee9637a6d40e5d7'
+  # config.pepper = '5fdc877f6af63052af51b12c54259dad0e77f80083a5d1c6e795868a650ab437807e856c5a0f0af31b14032498f4732335af586c5fcab38a69da8fe99576c41d'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification to the original email when the user's email is changed.
+  # config.send_email_changed_notification = false
+
+  # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
@@ -236,7 +245,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :get
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
